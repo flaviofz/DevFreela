@@ -4,4 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Command\CreateProvidedService\" />
+    <Folder Include="Command\CreateSkill\" />
+    <Folder Include="Command\CreateUser\" />
+    <Folder Include="Command\StartProvidedService\" />
+    <Folder Include="Query\GetAllUser\" />
+    <Folder Include="Query\GetProvidedService\" />
+    <Folder Include="Query\SearchFreelancer\" />
+  </ItemGroup>
+
 </Project>

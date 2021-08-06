@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace DevFreela.Application.Query.GetUser
+{
+    public class GetUserQuery
+    {
+        public GetUserQuery(int idUser)
+        {
+            IdUser = idUser;
+        }
+
+        public int IdUser { get; private set; }
+    }
+}
