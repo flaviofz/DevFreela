@@ -7,11 +7,18 @@
   <ItemGroup>
     <Folder Include="Command\CreateProvidedService\" />
     <Folder Include="Command\CreateSkill\" />
-    <Folder Include="Command\CreateUser\" />
     <Folder Include="Command\StartProvidedService\" />
     <Folder Include="Query\GetAllUser\" />
     <Folder Include="Query\GetProvidedService\" />
     <Folder Include="Query\SearchFreelancer\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DevFreela.Core\DevFreela.Core.csproj" />
   </ItemGroup>
 
 </Project>

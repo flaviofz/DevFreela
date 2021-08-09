@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DevFreela.Application.Query.GetUser
 {
-    public class GetUserQuery
+    public class GetUserQuery : IRequest<GetUserViewModel>
     {
         public GetUserQuery(int idUser)
         {
