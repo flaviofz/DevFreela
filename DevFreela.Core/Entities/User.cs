@@ -14,12 +14,14 @@ namespace DevFreela.Core.Entities
             UserSkils = new List<UserSkill>();
             ProvidedServices = new List<ProvidedService>();
             OwningProvidedServices = new List<ProvidedService>();
+            Active = true;
         }
 
         public string Name { get; private set; }
         public string Email { get; private set; }
         public DateTime BithDate { get; private set; }
         public DateTime CreatedAt { get; private set; }
+        public bool Active { get; set; }
 
         // Relacionamentos
         public List<UserSkill> UserSkils { get; private set; }

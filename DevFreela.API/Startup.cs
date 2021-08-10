@@ -1,7 +1,11 @@
 using DevFreela.Application.Query.GetUser;
+using DevFreela.Core.Interfaces.Repositories;
+using DevFreela.Infrastructure.Persistense.Context;
+using DevFreela.Infrastructure.Persistense.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,6 +26,11 @@ namespace DevFreela.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<DevFreelaDbContext>(options => options.UseSqlServer(connectionString));
+
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddMediatR(typeof(GetUserQuery));
 
