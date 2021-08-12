@@ -1,5 +1,7 @@
-﻿using DevFreela.Application.Command.CreateUser;
+﻿using DevFreela.API.Filters;
+using DevFreela.Application.Command.CreateUser;
 using DevFreela.Application.Query.GetUser;
+using DevFreela.Application.Validators;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -30,6 +32,11 @@ namespace DevFreela.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserInputModel createUserInputModel)
         {
+            // Validação feita chamando manualmente
+            //var validator = new CreateUserInputModelValidator();
+            //var result = validator.Validate(new CreateUserInputModel());
+            //result.IsValid();
+
             var command = new CreateUserCommand(
                 createUserInputModel.Name,
                 createUserInputModel.Email,

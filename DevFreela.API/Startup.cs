@@ -1,7 +1,11 @@
+using DevFreela.API.Extensions;
+using DevFreela.API.Filters;
 using DevFreela.Application.Query.GetUser;
+using DevFreela.Application.Validators;
 using DevFreela.Core.Interfaces.Repositories;
 using DevFreela.Infrastructure.Persistense.Context;
 using DevFreela.Infrastructure.Persistense.Repositories;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,14 +29,16 @@ namespace DevFreela.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services
+                .AddControllers(o => o.Filters.Add(typeof(ValidationFilter)))
+                .AddFluentValidation(o => o.RegisterValidatorsFromAssemblyContaining<CreateUserInputModelValidator>());
 
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DevFreelaDbContext>(options => options.UseSqlServer(connectionString));
 
-            services.AddScoped<IUserRepository, UserRepository>();
-
-            services.AddMediatR(typeof(GetUserQuery));
+            services                
+                .AddRepositories()
+                .AddMediatR(typeof(GetUserQuery));
 
             services.AddSwaggerGen(c =>
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" })
