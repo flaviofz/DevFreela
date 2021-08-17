@@ -2,9 +2,7 @@ using DevFreela.API.Extensions;
 using DevFreela.API.Filters;
 using DevFreela.Application.Query.GetUser;
 using DevFreela.Application.Validators;
-using DevFreela.Core.Interfaces.Repositories;
 using DevFreela.Infrastructure.Persistense.Context;
-using DevFreela.Infrastructure.Persistense.Repositories;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -36,7 +34,7 @@ namespace DevFreela.API
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DevFreelaDbContext>(options => options.UseSqlServer(connectionString));
 
-            services                
+            services
                 .AddRepositories()
                 .AddMediatR(typeof(GetUserQuery));
 

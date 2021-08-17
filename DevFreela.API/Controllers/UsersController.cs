@@ -1,7 +1,5 @@
-﻿using DevFreela.API.Filters;
-using DevFreela.Application.Command.CreateUser;
+﻿using DevFreela.Application.Command.CreateUser;
 using DevFreela.Application.Query.GetUser;
-using DevFreela.Application.Validators;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
