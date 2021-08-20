@@ -11,6 +11,11 @@ namespace DevFreela.API.Controllers
     {
         private readonly IMediator _mediator;
 
+        public SkillsController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetSkills()
         {

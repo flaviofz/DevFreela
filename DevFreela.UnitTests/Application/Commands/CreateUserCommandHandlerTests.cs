@@ -18,7 +18,7 @@ namespace DevFreela.UnitTests.Application.Commands
             var userRepository = new Mock<IUserRepository>();
             userRepository.Setup(x => x.Add(It.IsAny<User>())).Verifiable();
 
-            var createUserCommand = new CreateUserCommand("Teste", "teste@teste.com", new DateTime(1995, 1, 1));
+            var createUserCommand = new CreateUserCommand("Teste", "teste@teste.com", new DateTime(1995, 1, 1), "Senha", "Freelancer");
             var createUserCommandHandler = new CreateUserCommandHandler(userRepository.Object);
 
             // Act

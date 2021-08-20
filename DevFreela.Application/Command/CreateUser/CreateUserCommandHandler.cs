@@ -1,4 +1,5 @@
-﻿using DevFreela.Core.Entities;
+﻿using DevFreela.Application.Command.LoginUser;
+using DevFreela.Core.Entities;
 using DevFreela.Core.Interfaces.Repositories;
 using MediatR;
 using System.Threading;
@@ -20,7 +21,9 @@ namespace DevFreela.Application.Command.CreateUser
             var user = new User(
                 request.Name, 
                 request.Email, 
-                request.BirthDate
+                request.BirthDate,
+                LoginService.ComputeSha256Hash(request.Password),
+                request.Role
             );
 
             await _userRepository.Add(user);
