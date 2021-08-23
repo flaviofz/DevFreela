@@ -35,7 +35,10 @@ namespace DevFreela.API
                 .AddFluentValidation(o => o.RegisterValidatorsFromAssemblyContaining<CreateUserInputModelValidator>());
 
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
             services.AddDbContext<DevFreelaDbContext>(options => options.UseSqlServer(connectionString));
+
+            // services.AddDbContext<DevFreelaDbContext>(options => options.UseInMemoryDatabase("DevFreela"));
 
             services
                 .AddRepositories()
