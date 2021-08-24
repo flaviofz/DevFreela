@@ -42,7 +42,8 @@ namespace DevFreela.API
 
             services
                 .AddRepositories()
-                .AddMediatR(typeof(GetUserQuery));
+                .AddMediatR(typeof(GetUserQuery))
+                .AddMemoryCache();
 
             services.AddSwaggerGen(c =>
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" })

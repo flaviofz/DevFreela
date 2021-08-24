@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Command\CreateProvidedService\" />
-    <Folder Include="Command\CreateSkill\" />
     <Folder Include="Command\StartProvidedService\" />
     <Folder Include="Query\GetAllUser\" />
     <Folder Include="Query\GetProvidedService\" />

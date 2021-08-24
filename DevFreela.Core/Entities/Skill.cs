@@ -5,6 +5,17 @@ namespace DevFreela.Core.Entities
 {
     public class Skill : BaseEntity
     {
+        // Dapper
+        public Skill(
+            int id, 
+            string description, 
+            DateTime createdAt
+        ) : base(id)
+        {
+            Description = description;
+            CreatedAt = createdAt;
+        }
+
         public Skill(string description)
         {
             Description = description;
